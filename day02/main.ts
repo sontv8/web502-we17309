@@ -71,8 +71,16 @@ const projectList: IProject[] = [
     }
 ]
 
-const showProject = (projects) => {
+const showProject = (projects: IProject[]): void => {
     // tìm tới thẻ div có id app và hiển thị dữ liệu của mảng ra
     // sử dụng map và hiển thị
+    const app = document.querySelector("#app")
+    if (app) {
+        app.innerHTML = projects.map((item) => {
+            return `
+                data
+            `
+        }).join("")
+    }
 }
 showProject(projectList)
