@@ -11,14 +11,7 @@ function Sum({ a, b }) {
   return <div>{+a + +b}</div>
 }
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <div>
-  //   <h1>Hello</h1>
-  //   <ul>
-  //     <li>{a + b}</li>
-  //     <li>{sum(10, 20)}</li>
-  //   </ul>
-  //   <Sum a="10" b="20" />
-  // </div>
+
   <App />
 
 )
