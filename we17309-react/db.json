@@ -2,11 +2,11 @@
     "products": [
         {
             "id": 1,
-            "name": "Product A"
+            "name": "Product 1"
         },
         {
             "id": 2,
-            "name": "Product B"
+            "name": "Product 2"
         }
     ]
 }

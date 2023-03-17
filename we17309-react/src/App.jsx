@@ -1,25 +1,30 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 // import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ProductPage from './pages/Product'
+import React, { useEffect, useState } from 'react'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-  function increment() {
-    setCount(count + 1)
-  }
-  const [products, setProducts] = useState([])
+  const [products, setProduct] = useState([])
   useEffect(() => {
     fetch('http://localhost:3000/products')
-      .then(response => response.json())
-      .then(data => setProducts(data))
+      .then(res => res.json())
+      .then(data => setProduct(data))
   }, [])
   return (
     <div className="App">
-      {products.map((item) => {
-        return <div key={item.id}>
-          <h3>{item.name}</h3>
-        </div>
-      })}
+      {/* 
+        / - Homepage
+        /products - Products page
+        /products/:id - Product detail page
+      */}
+
+
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/products' element={<ProductPage products={products} />} />
+      </Routes>
     </div>
   )
 }
