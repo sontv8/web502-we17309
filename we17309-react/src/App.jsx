@@ -14,13 +14,6 @@ function App() {
   }, [])
   return (
     <div className="App">
-      {/* 
-        / - Homepage
-        /products - Products page
-        /products/:id - Product detail page
-      */}
-
-
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<ProductPage products={products} />} />
