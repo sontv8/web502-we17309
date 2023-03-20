@@ -5,9 +5,7 @@ const ProductPage = (props) => {
         setData(props.products)
     }, [props])
     const removeProduct = (id) => {
-        fetch('http://localhost:3000/products/' + id, {
-            method: 'DELETE'
-        }).then(() => setData(data.filter(product => product.id !== id)))
+        props.onRemove(id)
     }
     return (
         <div>

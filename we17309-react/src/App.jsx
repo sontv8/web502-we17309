@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/Product'
 import React, { useEffect, useState } from 'react'
+import ProductDetailPage from './pages/ProductDetail'
 
 
 function App() {
@@ -12,13 +13,20 @@ function App() {
       .then(res => res.json())
       .then(data => setProduct(data))
   }, [])
+  const onHandleRemove = (id) => {
+    fetch('http://localhost:3000/products/' + id, {
+      method: 'DELETE'
+    }).then(() => setProduct(products.filter(product => product.id !== id)))
+  }
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/products' element={<ProductPage products={products} />} />
+        <Route path='/products' element={<ProductPage products={products} onRemove={onHandleRemove} />} />
+        <Route path='/products/:id' element={<ProductDetailPage />} />
+        {/* useParams() */}
       </Routes>
-    </div>
+    </div >
   )
 }
 
