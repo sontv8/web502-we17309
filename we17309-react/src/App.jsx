@@ -25,7 +25,7 @@ function App() {
     deleteProduct(id).then(() => setProduct(products.filter(product => product.id !== id)))
   }
   const onHandleAdd = (product) => {
-    addProduct(product)
+    addProduct(product).then(() => setProduct([...products, product]))
   }
   const onHandleUpdate = (product) => { }
   return (
@@ -35,7 +35,7 @@ function App() {
         <Route path='/products' element={<ProductPage products={products} onRemove={onHandleRemove} />} />
         <Route path='/products/:id' element={<ProductDetailPage />} />
         <Route path='/admin' element={<Dashboard />} />
-        <Route path='/admin/products' element={<ProductManagementPage />} />
+        <Route path='/admin/products' element={<ProductManagementPage products={products} />} />
         <Route path='/admin/products/add' element={<AddProductPage onAdd={onHandleAdd} />} />
         {/* useParams() */}
       </Routes>

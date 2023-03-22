@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const ProductManagementPage = () => {
+const ProductManagementPage = (props) => {
+    const [data, setData] = useState([])
+    useEffect(() => {
+        setData(props.products)
+    }, [props])
+    const removeProduct = (id) => {
+        props.onRemove(id)
+    }
     return (
         <div>
             {/* <button><a href="/admin/products/add">Add New Product</a></button> */}
@@ -15,7 +22,18 @@ const ProductManagementPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-
+                    {
+                        data.map((product, index) => {
+                            return <tr key={product.id}>
+                                <td>{index + 1}</td>
+                                <td>{product.name}</td>
+                                <td>
+                                    <button>Remove</button>
+                                    <button>Update</button>
+                                </td>
+                            </tr>
+                        })
+                    }
                 </tbody>
             </table>
         </div>

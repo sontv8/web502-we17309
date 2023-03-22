@@ -15,6 +15,19 @@
     {
       "name": "new product 2",
       "id": 4
+    },
+    {
+      "name": "new product 3",
+      "id": 5
+    },
+    {
+      "name": "new product 4",
+      "id": 6
+    },
+    {
+      "name": "sontv",
+      "price": "1000",
+      "id": 7
     }
   ]
 }
