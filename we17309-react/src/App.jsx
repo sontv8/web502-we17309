@@ -8,6 +8,7 @@ import { addProduct, deleteProduct, getAllProduct } from './api/product'
 import Dashboard from './pages/admin/Dashboard'
 import ProductManagementPage from './pages/admin/ProductManagement'
 import AddProductPage from './pages/admin/AddProduct'
+import UpdateProductPage from './pages/admin/UpdateProduct'
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path='/admin' element={<Dashboard />} />
         <Route path='/admin/products' element={<ProductManagementPage products={products} />} />
         <Route path='/admin/products/add' element={<AddProductPage onAdd={onHandleAdd} />} />
+        <Route path='/admin/products/:id/update' element={<UpdateProductPage products={products} />} />
         {/* useParams() */}
       </Routes>
     </div >

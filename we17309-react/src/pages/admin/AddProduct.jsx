@@ -6,8 +6,9 @@ const AddProductPage = (props) => {
     const [inputValue, setInputValue] = useState({}) // tạo ra 1 biến inputValue để lưu giá trị input
     const onHandleChange = (e) => { // tạo ra 1 hàm onHandleChange để lấy giá trị input
         // setInputValue({ name: e.target.value }); // lấy giá trị input và gán vào biến inputValue
-        const name = e.target.name; // lấy giá trị name của input
-        const value = e.target.value; // lấy giá trị value của input
+        // const name = e.target.name; // lấy giá trị name của input
+        // const value = e.target.value; // lấy giá trị value của input
+        const { name, value } = e.target; // lấy giá trị name và value của input
         setInputValue({ ...inputValue, [name]: value });
     }
     const onHandleSubmit = (e) => { // tạo ra 1 hàm onHandleSubmit để submit form
