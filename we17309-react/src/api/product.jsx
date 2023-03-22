@@ -6,4 +6,7 @@ const getAllProduct = () => {
 const deleteProduct = (id) => {
     return instance.delete('/products/' + id);
 }
-export { getAllProduct, deleteProduct }
+const addProduct = (product) => {
+    return instance.post('/products', product);
+}
+export { getAllProduct, deleteProduct, addProduct }
