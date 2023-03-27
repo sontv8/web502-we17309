@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage'
 import ProductPage from './pages/Product'
 import React, { useEffect, useState } from 'react'
 import ProductDetailPage from './pages/ProductDetail'
-import { addProduct, deleteProduct, getAllProduct } from './api/product'
+import { addProduct, deleteProduct, getAllProduct, updateProduct } from './api/product'
 import Dashboard from './pages/admin/Dashboard'
 import ProductManagementPage from './pages/admin/ProductManagement'
 import AddProductPage from './pages/admin/AddProduct'
@@ -28,7 +28,9 @@ function App() {
   const onHandleAdd = (product) => {
     addProduct(product).then(() => setProduct([...products, product]))
   }
-  const onHandleUpdate = (product) => { }
+  const onHandleUpdate = (product) => {
+    updateProduct(product).then(() => setProduct(products.map(item => item.id === product.id ? product : item)))
+  }
   return (
     <div className="App">
       <Routes>
@@ -38,7 +40,7 @@ function App() {
         <Route path='/admin' element={<Dashboard />} />
         <Route path='/admin/products' element={<ProductManagementPage products={products} />} />
         <Route path='/admin/products/add' element={<AddProductPage onAdd={onHandleAdd} />} />
-        <Route path='/admin/products/:id/update' element={<UpdateProductPage products={products} />} />
+        <Route path='/admin/products/:id/update' element={<UpdateProductPage products={products} onUpdate={onHandleUpdate} />} />
         {/* useParams() */}
       </Routes>
     </div >
