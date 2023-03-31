@@ -6,6 +6,7 @@ import ProductPage from './pages/Product'
 import { IProduct } from './types/product'
 import ProductDetailPage from './pages/ProductDetail'
 import AddProductPage from './pages/admin/AddProduct'
+import UpdateProductPage from './pages/admin/UpdateProduct'
 function App() {
   const [products, setProduct] = useState<IProduct[]>([])
   useEffect(() => {
@@ -16,6 +17,9 @@ function App() {
   }
   const onHandleAdd = (product) => {
     addProduct(product)
+  }
+  const onHandleUpdate = (product) => {
+    updateProduct(product)
   }
   return (
     <div className="App">
@@ -31,6 +35,7 @@ function App() {
         <Route path='/admin'>
           <Route path='products'>
             <Route path='add' element={<AddProductPage onAdd={onHandleAdd} />} />
+            <Route path=':id/update' element={<UpdateProductPage onUpdate={onHandleUpdate} products={products} />} />
           </Route>
         </Route>
       </Routes>
