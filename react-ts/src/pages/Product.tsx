@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react"
-interface IProduct {
-    id: number,
-    name: string,
-    price: number
-}
+import { IProduct } from "../types/product"
 interface IProps {
     products: IProduct[],
     onRemove: (id: number) => void
