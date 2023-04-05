@@ -28,7 +28,27 @@
     {
       "name": "abcd",
       "price": "200",
-      "id": 6
+      "id": 6,
+      "categoryId": 1
+    },
+    {
+      "name": "abcd",
+      "price": "500",
+      "image": "DSC_1184.jpg",
+      "id": 7
+    },
+    {
+      "id": 8
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Category 1"
+    },
+    {
+      "id": 2,
+      "name": "Category 2"
     }
   ]
 }
